@@ -30,3 +30,8 @@
 *.vrb
 *.xdy
 *.tdo
+/tmp
+/report.pdf
+/report.synctex
+/.project
+/.texlipse

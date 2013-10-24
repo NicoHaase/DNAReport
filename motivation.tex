@@ -1,0 +1,17 @@
+\section{Motivation}
+
+Former DNA version had data structures hard coded into Java classes. Classes like
+\texttt{DirectedNode} were extended to store internal structures in specific data
+structures, such that \texttt{DirectedNodeAl} stored its edges in an arraylist. For each
+internal data structure, a dedicated class needs to be written. Classes containing the
+whole graph were named after their internal data structures, eg.
+\texttt{DirectedGraphAlAl}.
+
+\begin{itemize}
+	\item Adding a data structure is much work, as in addition to the data structure
+		itself many classes for its usage need to be created
+	\item Combining data structures leads to chaos, as for each combination of
+		data structures, a specific graph class needs to be created
+\end{itemize}
+
+

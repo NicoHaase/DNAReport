@@ -1,0 +1,12 @@
+\section{Ideas for enhancements}
+	\begin{itemize}
+		\item Decouple data structure providers (classes that provide a common interface for
+			our needs and use specific data structures, but hide this from the outside) and their
+			clients (classes for the whole graph, for nodes, and for edges)
+		\item Implement more data structure providers which have not yet been present, but could
+			be interesting for different reasons (faster run time, less memory consumption,\ldots)
+		\item Create a recommender system which analyses a whole workflow consisting of graph
+			generation, batch generation and application, metric application,\ldots over multiple
+			runs of a series, computes the complexity of the accesses that happened, and gives
+			recommendations about better data structures to use for this collection of accesses
+	\end{itemize}
