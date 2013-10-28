@@ -1,0 +1,16 @@
+\section{Profiling}
+	\begin{itemize}
+		\item Question: different data structures have different complexities. Adding something
+			might be cheap on one, but extensive on another that is faster on removing them. But
+			how can we compare them based on the accesses used?
+		\item Idea: count each call to the data structures, compute the complexities at the
+			end and give recommendations
+		\item Achieved through AspectJ which can be used to add functionalities using completely
+			seperate files that are woven into the existing code on compile time. This enables us
+			to keep nearly all profiler functionality seperated from the other code
+		\item On runtime, the profiler counts calls based on the performed action (add, remove,
+			contains) and callee signature (metric name, update type,\ldots), such that we can
+			determine the complexities for different use cases with one execution 
+	\end{itemize}
+	
+	\todo{Finish this section}
