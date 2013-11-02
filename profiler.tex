@@ -5,12 +5,33 @@
 			how can we compare them based on the accesses used?
 		\item Idea: count each call to the data structures, compute the complexities at the
 			end and give recommendations
-		\item Achieved through AspectJ which can be used to add functionalities using completely
-			seperate files that are woven into the existing code on compile time. This enables us
-			to keep nearly all profiler functionality seperated from the other code
+		\item Achieved through AspectJ which can be used to add functionalities to existing code
+			(see section \ref{sec:aspectj}). This enables us to keep nearly all profiler
+			functionality seperated from the other code
 		\item On runtime, the profiler counts calls based on the performed action (add, remove,
 			contains) and callee signature (metric name, update type,\ldots), such that we can
-			determine the complexities for different use cases with one execution 
+			determine the complexities for different use cases with one execution
+		\item Combined complexities are computed based on the complexities for each action on
+			each data structure, which are stored within each data structure class
+		\item Access counters are written to a file with a list of distinguishable access types,
+			summarized for each callee, and a recommendation for optimized complexities. As the
+			computation of recommendations is time consuming, this is not done for each callee, but
+			only for aggregations.
+		\item Access counters are written alongside the other data: metric access counters to
+			the metric's folder, counters for the graph generation, the batch generation and the
+			batch applications in seperate files per batch and aggregated per run and series.
+		\item Example output (shortened):
+			
+		\begin{verbatim}
+			DegreeDistributionU.AddNodeGlobal=0
+			DegreeDistributionU.AddNodeLocal=0
+			[...]
+			DegreeDistributionU.SizeEdgeLocal=35118
+			DegreeDistributionU.RandomNodeGlobal=0
+			DegreeDistributionU.RandomEdgeGlobal=0
+			[...]
+			#  Aggr: 36718*O(1)
+			#   Recommendations:
+			#    DArray;DArray;DArray: 36718*O(1)
+		\end{verbatim}
 	\end{itemize}
-	
-	\todo{Finish this section}

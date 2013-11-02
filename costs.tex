@@ -1,0 +1,24 @@
+\section{Performance influence}
+	The reworked class structure leads to a more readable and intuitive way to use DNA for
+	the programmer, but at which cost? The data structures are constructed using reflection,
+	which causes some
+	slowdown\footnote{\url{http://stackoverflow.com/questions/435553/java-reflection-performance}
+	reports about a slowdown in the magnitude of factor 10}, and having the profiler
+	enabled also causes additional work.
+	
+	\begin{itemize}
+		\item Initialization of 500 000 \texttt{ArrayList}s and putting one string into them:
+			$\sim 125$ msec, compared to $\sim 650$ msec using reflection
+		\item Running the same analysis using \texttt{HashSet}: $\sim 310$ msec compared to
+			$\sim 800$ msec
+		\item Runtime comparisons for the profiler part strongly rely on the monitored use case,
+			common parts: see section \ref{sec:testSetup}
+		\item Running the metric \texttt{Undirected\allowbreak Clustering\allowbreak
+			CoefficientU} takes $\sim 4100$ msec without profiling and $\sim 8500$ msec with
+			profiling enabled \todoInline{Revise numbers based on new recommender strategy}
+		\item Running the metric \texttt{Degree\allowbreak DistributionR} takes $\sim 3300$
+			msec without profiling and $\sim 7500$ msec with profiling enabled  \todoInline{Revise
+			numbers based on recommender strategy}
+	\end{itemize}
+	
+	\todoInline{Comparison for profiler}

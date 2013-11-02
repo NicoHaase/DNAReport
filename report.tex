@@ -3,10 +3,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{todonotes}
+\usepackage{hyperref}
 
 \newcommand{\topic}{Lab report: Datastructure enhancements in DNA}
 \newcommand{\student}{Nico Haase\\ \textit{Technische Universität Darmstadt \\
 nico.haase@stud.tu-darmstadt.de}}
+
+\newcommand{\todoInline}[1]{\todo[inline]{#1}}
 
 %% page headers
 \markboth{\topic}{\topic}
@@ -20,5 +23,10 @@ nico.haase@stud.tu-darmstadt.de}}
 \input{enhancements}
 \input{datastructures}
 \input{profiler}
+\input{costs}
+\input{evaluation}
+
+\appendix
+\input{appendix}
 
 \end{document}

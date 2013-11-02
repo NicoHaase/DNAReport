@@ -1,0 +1,35 @@
+\section{Appendix}
+\subsection{AspectJ} \label{sec:aspectj}
+	\begin{itemize}
+		\item AspectJ can be used to add functionalities using completely
+			seperate files that are woven into existing code on compile time
+		\item Defined through point cuts that hook into the existing code and aspects that
+			extend the code
+	
+			\begin{verbatim}
+				pointcut methodCall() :
+				  execution(* Class.Method())
+				  
+				before() : methodCall() {
+				  System.out.println("Calling Method");
+				}
+			\end{verbatim}
+		
+		\item On compile time, the aspects are woven into the byte code transparently
+		\item For DNA, one should install the "AspectJ Development Tools" over the Eclipse
+			marketplace. The DNA project in Eclipse needs to be converted to an AspectJ project
+			(right click on the project, select Configure $\rightarrow$ Convert to AspectJ
+			project). Now the profiler can be enabled through calling \texttt{Graph\allowbreak
+			Profiler.\allowbreak activate();}
+		
+	\end{itemize}
+\subsection{Test setup} \label{sec:testSetup}
+	\begin{itemize}
+		\item Common parts for the analysis: random undirected weighted graph with 1 000 nodes, 1 000 edges, random
+			batch generation with 200 node additions, 200 node removals, 15 changes of node weights,
+			1 000 edge additions, 500 edge removals, 15 changes of edge weights, running 3 runs
+			with 4 batches each
+		\item Sources are available via \url{https://github.com/NicoHaase/}
+		\item Test setup: Windows 7 on a Dell laptop, Intel i5 dual core CPU with 2.7 Ghz, Java
+			1.7.0\_45
+	\end{itemize}
