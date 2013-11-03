@@ -14,11 +14,10 @@
 		\item Runtime comparisons for the profiler part strongly rely on the monitored use case,
 			common parts: see section \ref{sec:testSetup}
 		\item Running the metric \texttt{Undirected\allowbreak Clustering\allowbreak
-			CoefficientU} takes $\sim 4100$ msec without profiling and $\sim 8500$ msec with
-			profiling enabled \todoInline{Revise numbers based on new recommender strategy}
+			CoefficientU} takes $\sim 4100$ msec without profiling and $\sim 4800$ msec with
+			profiling enabled ($+ 17\%$)
 		\item Running the metric \texttt{Degree\allowbreak DistributionR} takes $\sim 3300$
-			msec without profiling and $\sim 7500$ msec with profiling enabled  \todoInline{Revise
-			numbers based on recommender strategy}
+			msec without profiling and $\sim 3900$ msec with profiling enabled ($+ 18\%$)
+		\item Running the metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} takes
+		$\sim 7200$ msec without profiling and $\sim 8800$ msec with profiling enabled ($+ 22\%$)
 	\end{itemize}
-	
-	\todoInline{Comparison for profiler}
