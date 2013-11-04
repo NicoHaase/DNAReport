@@ -1,2 +1,22 @@
 \section{Evaluation / demonstration}
-	\todoInline{Fill this section with life}
+	The profiler should give one the ability to run DNA with an optimized combination of data
+	structures. In this section, we want to demonstrate the capabilites of the recommender.
+	We chose two scenarios for this, and initially select data structures for the global node
+	and edge list and the  as bad as possible to demonstrate the later enhancements.
+	
+	In the first scenario, the graph should grow from batch to batch by 1000 nodes and 2000
+	edges without removing anything. Before each graph update, the degree distribution is
+	refreshed. We store all lists in arrays as it is expensive to add entries to an array:
+	the first step is checking whether the element is already contained in that array by
+	iterating over the whole array (linear complexity - other data structures can do this
+	with static complexity), the second step is adding the element. The calculated complexity
+	for one example run with this data structure combination is $549534*O(1) + 324576*O(d) +
+	295066*O(E)$, the runtime can be averaged to $\sim 9000$ msec. Using arrays to store the
+	global node list and HashSets for both edge lists, the complexity can be estimated to
+	$1006888*O(1)$. Using the recommended combination leads to a complexity of $844477*O(1)$
+	and an averaged runtime of $\sim 2000$ msec ($- 77\%$).
+	
+	In the second scenario, it should shrink from a large graph, computing shortest paths
+	alongside. \todoInline{Describe the second scenario}
+	
+	

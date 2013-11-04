@@ -34,4 +34,14 @@
 			#   Recommendations:
 			#    DArray;DArray;DArray: 36718*O(1)
 		\end{verbatim}
+		
+		\item Important side note about the recommender: different data structures use different
+			ways to perform the same action (eg. \texttt{DArray.add} calls
+			\texttt{DArray.contains}, while \texttt{DHashSet.add} does not). The profiler can only
+			count each access type for the currently used data structures and give recommendations
+			for this combination of calls. Thus, using another combination might not lead to the
+			complexity the recommender computed. For the given example, the recommender will work
+			based on calls for both \texttt{add} and \texttt{contains}, although \texttt{DHashSet}
+			never calls \texttt{contains} within \texttt{add}. It might be necessary to run the
+			recommender more than once to yield better results.
 	\end{itemize}
