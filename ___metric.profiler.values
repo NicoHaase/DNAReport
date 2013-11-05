@@ -1,0 +1,30 @@
+DegreeDistributionU.AddNodeGlobal=0
+DegreeDistributionU.AddNodeLocal=0
+DegreeDistributionU.AddEdgeGlobal=0
+DegreeDistributionU.AddEdgeLocal=0
+DegreeDistributionU.RemoveNodeGlobal=0
+DegreeDistributionU.RemoveNodeLocal=0
+DegreeDistributionU.RemoveEdgeGlobal=0
+DegreeDistributionU.RemoveEdgeLocal=0
+DegreeDistributionU.ContainsNodeGlobal=0
+DegreeDistributionU.ContainsNodeLocal=0
+DegreeDistributionU.ContainsEdgeGlobal=0
+DegreeDistributionU.ContainsEdgeLocal=0
+DegreeDistributionU.GetNodeGlobal=0
+DegreeDistributionU.GetNodeLocal=0
+DegreeDistributionU.GetEdgeGlobal=0
+DegreeDistributionU.GetEdgeLocal=0
+DegreeDistributionU.SizeNodeGlobal=0
+DegreeDistributionU.SizeNodeLocal=0
+DegreeDistributionU.SizeEdgeGlobal=0
+DegreeDistributionU.SizeEdgeLocal=96000
+DegreeDistributionU.RandomNodeGlobal=0
+DegreeDistributionU.RandomEdgeGlobal=0
+DegreeDistributionU.IteratorNodeGlobal=0
+DegreeDistributionU.IteratorNodeLocal=0
+DegreeDistributionU.IteratorEdgeGlobal=0
+DegreeDistributionU.IteratorEdgeLocal=0
+#  Aggr: 96000*O(1)
+#   Recommendations:
+#    DArray;DArray;DArray: 96000*O(1)
+

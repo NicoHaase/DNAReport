@@ -3,19 +3,18 @@
 		\item Data structure classes to hold single properties (nodes and edges) were decoupled
 			from the graph and node classes by using a common interface for the ``storage''
 			classes. At each possible place, this interface is used instead of concrete classes
-		\item The common interface holds methods for all actions that are necessary for common
-			accesses, like \texttt{add}, \texttt{contains}, \texttt{remove}, \texttt{size},\ldots,
-			and internally uses another data structures (eg. \texttt{DArray} stores everything in
-			an array, \texttt{DHashSet} in a hashset,\ldots)
+		\item The common interface \texttt{IDataStructure} holds methods for all actions that
+			are necessary for common accesses, like \texttt{add}, \texttt{contains},
+			\texttt{remove}, \texttt{size},\ldots, and internally uses another data structures (eg.
+			\texttt{DArray} stores everything in an array, \texttt{DHashSet} in a hashset,\ldots)
 		\item Extended interfaces hold methods that are not available on all data structures,
 			like \texttt{getRandom}. A data structure that makes use of this constraint in the base
 			interface is a Bloom filter which probabilistically stores only flags for contained
 			elements, but not a pointer to the elements itself, for less memory consumption
-		\item A class holds the currently used storage classes for the global edge and node
-			lists, and the node-local edge lists.
-		\item Generating a new instance of a storage class is done through
-			\texttt{GraphDataStructure}, using Reflection such that the used storage class can be
-			exchanged on runtime
+		\item The class \texttt{GraphDataStructure} holds the currently used storage classes for
+			the global edge and node lists, and the node-local edge lists.
+		\item Generating a new instance of a storage class is done through this class, using
+			Reflection such that the used storage class can be exchanged on runtime
 		\item Currently included data structures: pure array, \texttt{ArrayList},
 			\texttt{HashMap}, \texttt{HashSet}, \texttt{LinkedList}
 	\end{itemize}

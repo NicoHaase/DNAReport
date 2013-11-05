@@ -4,20 +4,26 @@
 	which causes some
 	slowdown\footnote{\url{http://stackoverflow.com/questions/435553/java-reflection-performance}
 	reports about a slowdown in the magnitude of factor 10}, and having the profiler
-	enabled also causes additional work.
+	enabled also causes additional work. 
 	
-	\begin{itemize}
-		\item Initialization of 500 000 \texttt{ArrayList}s and putting one string into them:
-			$\sim 125$ msec, compared to $\sim 650$ msec using reflection
-		\item Running the same analysis using \texttt{HashSet}: $\sim 310$ msec compared to
-			$\sim 800$ msec
-		\item Runtime comparisons for the profiler part strongly rely on the monitored use case,
-			common parts: see section \ref{sec:testSetup}
-		\item Running the metric \texttt{Undirected\allowbreak Clustering\allowbreak
-			CoefficientU} takes $\sim 4100$ msec without profiling and $\sim 4800$ msec with
-			profiling enabled ($+ 17\%$)
-		\item Running the metric \texttt{Degree\allowbreak DistributionR} takes $\sim 3300$
-			msec without profiling and $\sim 3900$ msec with profiling enabled ($+ 18\%$)
-		\item Running the metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} takes
-		$\sim 7200$ msec without profiling and $\sim 8800$ msec with profiling enabled ($+ 22\%$)
-	\end{itemize}
+	\ \\ 	
+	\centering
+	\begin{tabular}{lll}
+		Task & using usual inialization & using reflection \\
+	    500 000 \texttt{ArrayList}s, putting one string into them & 
+	    	$\sim 125$ msec & $\sim 650$ msec   \\
+	    500 000 \texttt{HashSet}s, putting one string into them  &
+	    	$\sim 310$ msec & $\sim 800$ msec \\
+		~ & ~ & \\
+		Task & AspectJ disabled & AspectJ enabled \\
+    	Metric \texttt{Undirected\allowbreak Clustering\allowbreak
+			CoefficientU} & $\sim 4100$ msec & $\sim 4800$ msec ($+ 17\%$) \\
+		Metric \texttt{Degree\allowbreak DistributionR} &
+			$\sim 3300$ msec & $\sim 3900$ msec ($+ 18\%$) \\
+		Metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} &
+			$\sim 7200$ msec & $\sim 8800$ msec ($+ 22\%$) \\
+    \end{tabular}
+    
+	\ \\
+	Runtime comparisons for the profiler part strongly rely on the monitored use
+	case, common parts: see section \ref{sec:testSetup}
