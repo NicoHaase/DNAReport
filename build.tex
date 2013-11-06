@@ -1,0 +1,15 @@
+\section{Building DNA}
+	\begin{itemize}
+		\item For building DNA in Eclipse, one should install the "AspectJ Development Tools"
+			over the Eclipse marketplace. The DNA project in Eclipse needs to be converted to an
+			AspectJ project (right click on the project, select Configure $\rightarrow$ Convert to
+			AspectJ project). Now the profiler can be told to count accesses through calling
+			\texttt{Graph\allowbreak Profiler.\allowbreak activate();}
+		\item Remark: while the project is configured with AspectJ, the additional code is
+			always woven in. Not activating the profiler saves some runtime (as computing the
+			recommendations is the most time consuming part of the profiler), but there is a
+			runtime difference between having AspectJ completely disabled and having it enabled,
+			but not activating the profiler
+	\end{itemize}
+	
+	\todoInline{ANT}
