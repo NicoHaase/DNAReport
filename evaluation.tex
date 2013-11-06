@@ -1,8 +1,12 @@
 \section{Evaluation / demonstration}
 	The profiler should give one the ability to run DNA with an optimized combination of data
 	structures. In this section, we want to demonstrate the capabilites of the recommender.
-	We chose two scenarios for this, and initially select data structures for the global node
-	and edge list and the  as bad as possible to demonstrate the later enhancements.
+	After having already evaluated some very simple cases in section \ref{sec:performance},
+	we additionally chose two more scenarios for this to evaluate the recommender. We
+	initially select data structures for the global node and edge list and the node-local
+	edge list as bad as possible to demonstrate the later enhancements.
+	
+	\todoInline{Re run with new size}
 	
 	In the first scenario, the graph should grow from batch to batch by 1000 nodes and 2000
 	edges without removing anything. Before each graph update, the degree distribution is
@@ -15,6 +19,8 @@
 	global node list and HashSets for both edge lists, the complexity can be estimated to
 	$1006888*O(1)$. Using the recommended combination leads to a complexity of $844477*O(1)$
 	and an averaged runtime of $\sim 2000$ msec ($- 77\%$).
+	
+	\todoInline{check data structures in Metric.java}
 	
 	In the second scenario, it should shrink from a large graph, computing shortest paths
 	alongside. \todoInline{Describe the second scenario}

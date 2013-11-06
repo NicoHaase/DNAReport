@@ -1,4 +1,4 @@
-\section{Performance influence}
+\section{Performance evaluation of the profiler} \label{sec:performance}
 	The reworked class structure leads to a more readable and intuitive way to use DNA for
 	the programmer, but at which cost? The data structures are constructed using reflection,
 	which causes some
@@ -15,16 +15,29 @@
 		    500 000 \texttt{HashSet}s, putting one string into them  &
 		    	$\sim 310$ msec & $\sim 800$ msec \\
 			~ & ~ & \\
-			Task & AspectJ disabled & AspectJ enabled \\
+			Task performed on initial data structures & AspectJ disabled & AspectJ enabled \\
 	    	Metric \texttt{Undirected\allowbreak Clustering\allowbreak
-				CoefficientU} & $\sim 4100$ msec & $\sim 4800$ msec ($+ 17\%$) \\
+				CoefficientU} & $\sim 5190$ msec & $\sim 6030$ msec ($+ 16\%$) \\
 			Metric \texttt{Degree\allowbreak DistributionR} &
-				$\sim 3300$ msec & $\sim 3900$ msec ($+ 18\%$) \\
+				$\sim 4065$ msec & $\sim 4650$ msec ($+ 14\%$) \\
 			Metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} &
-				$\sim 7200$ msec & $\sim 8800$ msec ($+ 22\%$) \\
+				$\sim 8120$ msec & $\sim 10445$ msec ($+ 29\%$) \\
+			~ & ~ & \\
+			Task performed on recommended data structures & AspectJ disabled & AspectJ enabled \\
+	    	Metric \texttt{Undirected\allowbreak Clustering\allowbreak
+				CoefficientU} & $\sim 2885$ msec & $\sim 3615$ msec ($+ 25\%$) \\
+			Metric \texttt{Degree\allowbreak DistributionR} &
+				$\sim 1455$ msec & $\sim 2090$ msec ($+ 44\%$) \\
+			Metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} &
+				$\sim 9010$ msec & $\sim 11400$ msec ($+ 27\%$) \\				
 	    \end{tabular}
 	\end{center}
 	    
 	\ \\
 	Runtime comparisons for the profiler part strongly rely on the monitored use
-	case, common parts: see section \ref{sec:testSetup}
+	case, common parts: see section \ref{sec:testSetup}. Initial data structure combination:
+	DArrayList.class, DArrayList.class, DArrayList.class. Recommended combination: 		
+	DArray.class, DHashSet.class, DHashSet.class
+	
+	For much larger graphs, the slowdown of having the profiler enabled falls dramatically to
+	less than $10 \%$

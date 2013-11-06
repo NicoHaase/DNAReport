@@ -51,4 +51,7 @@
 			based on calls for both \texttt{add} and \texttt{contains}, although \texttt{DHashSet}
 			never calls \texttt{contains} within \texttt{add}. It might be necessary to run the
 			recommender more than once to yield better results.
+		\item It takes a nearly static amount of time to compute the recommendations,
+			independent of the chosen data structures and the graph size. Having it active in a
+			setup with a small graph predominates the optimization of data structures
 	\end{itemize}
