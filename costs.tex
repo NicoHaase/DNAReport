@@ -7,37 +7,91 @@
 	enabled also causes additional work. 
 	
 	\ \\ 	
-	\begin{center}
-		\begin{tabular}{lll}
-			Task & using usual inialization & using reflection \\
+	\begin{sidewaystable}
+		\begin{tabular}{lllll}
+			Task & \multicolumn{2}{l}{using usual initialization} & \multicolumn{2}{l}{using
+			reflection} \\
 		    500 000 \texttt{ArrayList}s, putting one string into them & 
-		    	$\sim 125$ msec & $\sim 650$ msec   \\
+		    	\multicolumn{2}{l}{$\sim 125$ msec} & \multicolumn{2}{l}{$\sim 650$ msec} \\
 		    500 000 \texttt{HashSet}s, putting one string into them  &
-		    	$\sim 310$ msec & $\sim 800$ msec \\
-			~ & ~ & \\
-			Task performed on initial data structures & AspectJ disabled & AspectJ enabled \\
+		    	\multicolumn{2}{l}{$\sim 310$ msec} & \multicolumn{2}{l}{$\sim 800$ msec} \\
+			~ & \\
+			Task performed on data structure set 1 & AspectJ disabled & AspectJ without any
+			aspects & AspectJ with Aspects, profiler disabled & Profiler enabled \\
 	    	Metric \texttt{Undirected\allowbreak Clustering\allowbreak
-				CoefficientU} & $\sim 5190$ msec & $\sim 6030$ msec ($+ 16\%$) \\
+				CoefficientU} & $\sim 5190$ msec & $\sim 5205$ msec ($- 0.3\%$) & $\sim 5500$ msec ($+
+				6\%$) & $\sim 6030$ msec ($+ 16\%$) \\
 			Metric \texttt{Degree\allowbreak DistributionR} &
-				$\sim 4065$ msec & $\sim 4650$ msec ($+ 14\%$) \\
+				$\sim 4065$ msec & $\sim 4055$ msec ($- 0.3\%$) & $\sim 4195$ msec ($+
+				3\%$) & $\sim 4650$ msec ($+ 14\%$) \\
 			Metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} &
-				$\sim 8120$ msec & $\sim 10445$ msec ($+ 29\%$) \\
-			~ & ~ & \\
-			Task performed on recommended data structures & AspectJ disabled & AspectJ enabled \\
+				$\sim 8120$ msec & $\sim 8045$ msec ($- 1\%$) & $\sim 9255$ msec ($+
+				14\%$) & $\sim 10445$ msec ($+ 29\%$) \\
+			~ & \\
+			
+			Task performed on data structure set 2 (Recommender) & AspectJ disabled & AspectJ
+			without any aspects & AspectJ with Aspects, profiler disabled & Profiler enabled \\
 	    	Metric \texttt{Undirected\allowbreak Clustering\allowbreak
-				CoefficientU} & $\sim 2885$ msec & $\sim 3615$ msec ($+ 25\%$) \\
+				CoefficientU} & $\sim 2885$ msec & $\sim 2900$ msec ($+ 0.5\%$) & $\sim 3140$ msec ($+
+				9\%$) & $\sim 3615$ msec ($+ 25\%$) \\
 			Metric \texttt{Degree\allowbreak DistributionR} &
-				$\sim 1455$ msec & $\sim 2090$ msec ($+ 44\%$) \\
+				$\sim 1455$ msec & $\sim 1475$ msec ($+ 1.4\%$) & $\sim 1565$ msec ($+
+				8\%$) & $\sim 2060$ msec ($+ 42\%$) \\
 			Metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} &
-				$\sim 9010$ msec & $\sim 11400$ msec ($+ 27\%$) \\				
+				$\sim 8790$ msec & $\sim 8750$ msec ($- 0.5\%$) & $\sim 10030$ msec ($+
+				14\%$) & $\sim 11400$ msec ($+ 30\%$) \\
+			~ & \\
+			
+			Task performed on data structure set 3 & AspectJ disabled & AspectJ without any
+			aspects & AspectJ with Aspects, profiler disabled & Profiler enabled \\
+	    	Metric \texttt{Undirected\allowbreak Clustering\allowbreak
+				CoefficientU} & $\sim 7900$ msec & $\sim 8100$ msec ($+ 2.5\%$) & $\sim 8640$ msec ($+
+				9\%$) & $\sim 9565$ msec ($+ 21\%$) \\
+			Metric \texttt{Degree\allowbreak DistributionR} & $\sim 6450$ msec & $\sim 6760$ msec
+			($+ 5\%$) & $\sim 7060$ msec ($+ 9.5\%$) & $\sim 7980$ msec ($+ 24\%$) \\
+			Metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} & $\sim 10820$ msec &
+			$\sim 11325$ msec ($+ 4.7\%$) & $\sim 12520$ msec ($+ 16\%$) & $\sim 14150$ msec ($+
+			31\%$) \\
+			~ & \\
+			
+			Task performed on data structure set 4 & AspectJ disabled & AspectJ without any
+			aspects & AspectJ with Aspects, profiler disabled & Profiler enabled \\
+	    	Metric \texttt{Undirected\allowbreak Clustering\allowbreak
+				CoefficientU} & $\sim 6490$ msec & $\sim 6530$ msec ($+ 0.6\%$) & $\sim 6800$ msec ($+
+				5\%$) & $\sim 7300$ msec ($+ 12.5\%$) \\
+			Metric \texttt{Degree\allowbreak DistributionR} & $\sim 5130$ msec & $\sim 5180$ msec
+			($+ 1\%$) & $\sim 5380$ msec ($+ 5\%$) & $\sim 5900$ msec ($+ 15\%$) \\
+			Metric \texttt{Undirected\allowbreak Shortest\allowbreak PathsR} & $\sim 9530$ msec &
+			$\sim 9600$ msec ($+ 0.7\%$) & $\sim 10950$ msec ($+ 15\%$) & $\sim 12080$ msec ($+
+			27\%$) \\
 	    \end{tabular}
-	\end{center}
-	    
+	\end{sidewaystable}
 	\ \\
-	Runtime comparisons for the profiler part strongly rely on the monitored use
-	case, common parts: see section \ref{sec:testSetup}. Initial data structure combination:
-	DArrayList.class, DArrayList.class, DArrayList.class. Recommended combination: 		
-	DArray.class, DHashSet.class, DHashSet.class
+	
+	\begin{itemize}
+		\item Runtime comparisons for the profiler part strongly rely on the monitored use
+			case
+		\item Data structure combinations:
+		\begin{enumerate}
+			\item Initial data structure combination: \texttt{DArrayList} / \texttt{DArrayList} /
+			\texttt{DArrayList}
+			\item Recommended combination: \texttt{DArray} / \texttt{DHashSet} / \texttt{DHashSet}
+			\item Worst case from the recommendation list:
+				\texttt{DLinkedList} / \texttt{DArray} / \texttt{DArray}
+			\item As a comparison: \texttt{DArray} / \texttt{DArray} / \texttt{DArray}
+		\end{enumerate}
+
+		\item Common parts for the analysis: random undirected weighted graph with 1 000 nodes,
+			10 000 edges
+		\item Common batch generation, if not stated otherwise: random batch generation with
+			1 000 node additions, 500 node removals, 50 changes of node weights, 2 000 edge
+			additions, 500 edge removals, 50 changes of edge weights
+		\item Runtimes are averaged over five series generations, running 3 runs with 4 batches
+			each
+		\item Sources are available via \url{https://github.com/NicoHaase/}
+		\item Test setup: Windows 7 on a Dell laptop, Intel i5 dual core CPU with 2.7 Ghz, Java
+			1.7.0\_45
+	\end{itemize}	
 	
 	For much larger graphs, the slowdown of having the profiler enabled falls dramatically to
 	less than $10 \%$

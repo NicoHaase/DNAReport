@@ -18,19 +18,6 @@
 		\item On compile time, the aspects are woven into the byte code transparently
 		
 	\end{itemize}
-\subsection{Test setup} \label{sec:testSetup}
-	\begin{itemize}
-		\item Common parts for the analysis: random undirected weighted graph with 1 000 nodes,
-			10 000 edges
-		\item Common batch generation, if not stated otherwise: random batch generation with
-			1 000 node additions, 500 node removals, 50 changes of node weights, 2 000 edge
-			additions, 500 edge removals, 50 changes of edge weights
-		\item Runtimes are averaged over five series generations, running 3 runs with 4 batches
-			each
-		\item Sources are available via \url{https://github.com/NicoHaase/}
-		\item Test setup: Windows 7 on a Dell laptop, Intel i5 dual core CPU with 2.7 Ghz, Java
-			1.7.0\_45
-	\end{itemize}
 	
 \subsection{Example output} \label{sec:exampleOutput}
 	\verbatiminput{___metric.profiler.values}
