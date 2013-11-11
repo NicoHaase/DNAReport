@@ -1,0 +1,12 @@
+\section{Conclusion \& further work}
+	We have introduced more data structures and a profiling and recommendation extension for
+	DNA. Users of DNA can combine the data structures under many aspects like time or memory
+	consumption. But the runtime comparisons we evaluated show a problem of our current
+	recommendation system: it is only based on complexities. This can give a fast first view
+	about the scalability of the data structure performances, but the comparison between
+	different combinations of data structures leads to misinterpretations. For a brief
+	example: both the LinkedList and the HashSet have a complexity of $O(1)$ for inserting
+	elements. But obviously, inserting an element into a hash based data structure takes
+	longer as we have to compute the hash of the element first to find the corresponding
+	bucket. In a future work, we want to evaluate additional ways to compare the performance
+	of data structures.
