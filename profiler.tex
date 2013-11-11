@@ -15,18 +15,43 @@
 			determine the complexities for different use cases with one execution
 		\item Combined complexities are computed based on the complexities for each action on
 			each data structure, which are stored within each data structure class
-		\item Access counters are written to the file \texttt{\_\_\_aggregated.\allowbreak
-			profiler.\allowbreak values} with a list of distinguishable access types, summarized
+		\item Accesses are counted based on a list of distinguishable access types (add,
+			remove, contains) and the callee signature (eg. metric name, update type)
+		\item Access counters are written to files split up into different use cases (for
+			graph generation, batch generation and application, metrics), summarized
 			for each callee, and a recommendation for optimized complexities. As the computation of
 			recommendations is time consuming, this is not done for each callee, but only for
 			aggregations.
-		\item Access counters are written alongside the other data: metric access counters to
-			the metric's folder in the file \texttt{\_\_\_metric.\allowbreak
-			profiler.\allowbreak values}, counters for the graph generation
-			(\texttt{\_\_\_graphGeneration.\allowbreak profiler.\allowbreak values}), the batch
-			generation (\texttt{\_\_\_batchGeneration.\allowbreak profiler.\allowbreak values}) and the batch
-			applications (\texttt{\_\_\_updates.\allowbreak profiler.\allowbreak values}) in seperate files per
-			batch and aggregated per run and series.
+
+			\begin{tabular}{@{\hspace{2ex}}p{42em}}	
+			\dirtree{%
+			.1 Root directory of data output.
+			.2 aggr. 
+			.2 run.0.
+			.3 batch.0. 
+			.4 metric.firstExample. 
+			.5 \_\_\_metric.profiler.values.
+			.4 metric.secondExample. 
+			.5 \ldots .   
+			.4 \_\_\_aggregated.profiler.values.
+			.4 \_\_\_batchGeneration.profiler.values.
+			.4 \_\_\_metric.profiler.values. 
+			.4 \_\_\_updates.profiler.values.    
+			.3 batch.1.
+			.4 \ldots .    
+			.3 \_\_\_aggregated.profiler.values. 
+			.3 \_\_\_batchGeneration.profiler.values. 
+			.3 \_\_\_graphGeneration.profiler.values. 
+			.3 \_\_\_metric.profiler.values. 
+			.3 \_\_\_updates.profiler.values.  
+			.2 run.1. 
+			.3 \ldots .   
+			.2 \_\_\_aggregated.profiler.values. 
+			.2 \_\_\_batchGeneration.profiler.values. 
+			.2 \_\_\_metric.profiler.values. 
+			.2 \_\_\_updates.profiler.values. 
+			}
+			\end{tabular}
 		\item Example output (shortened, full file at \ref{sec:exampleOutput}):
 			
 		\begin{verbatim}
