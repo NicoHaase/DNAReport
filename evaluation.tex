@@ -6,23 +6,26 @@
 	initially select data structures for the global node and edge list and the node-local
 	edge list as bad as possible to demonstrate the later enhancements.
 	
-	\todoInline{Re run with new size}
-	
 	In the first scenario, the graph should grow from batch to batch by 1000 nodes and 2000
 	edges without removing anything. Before each graph update, the degree distribution is
 	refreshed. We store all lists in arrays as it is expensive to add entries to an array:
 	the first step is checking whether the element is already contained in that array by
 	iterating over the whole array (linear complexity - other data structures can do this
 	with static complexity), the second step is adding the element. The calculated complexity
-	for one example run with this data structure combination is $549534*O(1) + 324576*O(d) +
-	295066*O(E)$, the runtime can be averaged to $\sim 9000$ msec. Using arrays to store the
+	for one example run with this data structure combination is $549770*O(1) + 324688*O(d) +
+	295205*O(E)$, the runtime can be averaged to $\sim 9000$ msec. Using arrays to store the
 	global node list and HashSets for both edge lists, the complexity can be estimated to
-	$1006888*O(1)$. Using the recommended combination leads to a complexity of $844477*O(1)$
-	and an averaged runtime of $\sim 2000$ msec ($- 77\%$).
-	
-	\todoInline{check data structures in Metric.java}
-	
-	In the second scenario, it should shrink from a large graph, computing shortest paths
-	alongside. \todoInline{Describe the second scenario}
+	$1007319*O(1)$. Using the recommended combination leads to a complexity of $844477*O(1)$
+	and an averaged runtime of $\sim 1745$ msec ($- 80\%$).
+		
+	In the second scenario, it should shrink from a graph with 2 000 nodes and 3 000
+	edges by 100 nodes and 150 edges per batch, computing shortest paths alongside. Using the
+	initial data structure combination, the complexity of an example run is $74937234*O(1) +
+	36012*O(d) + 24012*O(N) + 9006*O(E)$, the averaged runtime is $\sim 10690$ msec. The
+	recommended data structures (here: \texttt{DArray} / \texttt{DHashMap} /
+	\texttt{DHashSet}) lead to an estimated complexity of $75075849*O(1) + 1863*O(E)$. Using
+	this combination leads to a complexity of $75231610*O(1) + 1858*O(E)$ for an example run
+	and an averaged runtime of $\sim 14540$ msec. We also evaluated this correlation with
+	larger and smaller graphs.
 	
 	
